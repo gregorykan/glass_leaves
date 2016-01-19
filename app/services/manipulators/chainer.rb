@@ -1,12 +1,12 @@
 module Manipulators
   class Chainer
-    def initialize(string, method_name_array)
+    def initialize(string, methods_with_args)
       @string = string
-      @method_name_array = method_name_array
+      @methods_with_args = methods_with_args
     end
 
     def chain
-      @method_name_array.inject(@string) { |string, method| send(method, string) }
+      @methods_with_args.inject(@string) { |string, method_hash| send(method_hash[:method], string, *Array(method_hash[:args])) }
     end
 
     def isolate_adjectives(string)
@@ -43,6 +43,15 @@ module Manipulators
 
     def randomize(string)
       Manipulators::Randomizer.new(string).randomize
+    end
+
+    def splice_words(string_a, string_b)
+      puts string_a, string_b
+      Manipulators::WordSplicer.new(string_a, string_b).splice
+    end
+
+    def splice_sentences(string_a, string_b)
+      Manipulators::SentenceSplicer.new(string_a, string_b).splice
     end
   end
 end
