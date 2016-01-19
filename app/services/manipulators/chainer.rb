@@ -21,6 +21,10 @@ module Manipulators
       Manipulators::NounIsolator.new(string).isolate
     end
 
+    def isolate_nouns_and_adjectives(string)
+      Manipulators::NounAndAdjectiveIsolator.new(string).isolate
+    end
+
     def strip_adjectives(string)
       Manipulators::AdjectiveStripper.new(string).strip
     end
