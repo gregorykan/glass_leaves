@@ -10,7 +10,9 @@ Services:
 - Remove verbs
 - Get adjectives
 - Remove adjectives
-- Replace wordclass
+- Get nouns and adjectives
+- Word splice
+- Sentence splice
 
 Gems:
 
