@@ -20,5 +20,5 @@ Gems:
 
 Platforms:
 
-- Rails/Sinatra
+- Rails
 - JavaScript/JQuery
