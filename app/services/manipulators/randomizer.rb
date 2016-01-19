@@ -7,6 +7,7 @@ module Manipulators
     def randomize
       word_array = split
       word_array.shuffle!
+      word_array.join(" ")
     end
 
     def split
