@@ -3,9 +3,10 @@ class HomeController < ApplicationController
   end
 
   def manipulate
-    method_array = params[:operations].values.map { |x| {method: method_id_to_name_hash[x["name"]], args: x["args"]} }
+    method_array = params[:operations].values.map { |x| args = [] if x["args"].empty?; args = x["args"] if x["args"].present?; {method: method_id_to_name_hash[x["name"]], args: args} }
     initial_string = params[:initial_text]
-    binding.pry
+    @manipulated = manipulator(initial_string, method_array).chain
+    render 'home/manipulated'
   end
 
   def manipulator(initial_string, method_array)

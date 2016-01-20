@@ -22,7 +22,8 @@ module Manipulators
     end
 
     def split
-      splitter(@string).split
+      eng_tagger.get_sentences(@string)
+      binding.pry
     end
 
     def splitter(string)

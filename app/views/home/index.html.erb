@@ -5,17 +5,12 @@
   <%= text_area_tag(:initial_text) %>
 
   <div class="added-actions">
-<!--     <div class="action-item">
-      <input type="hidden" value="1" name="operations[1][name]">
-      <span>Burn</span>
-      <input name="operations[1][extra_args]" type="text">
-    </div> -->
   </div>
 
-  <%= select_tag :method, options_for_select([['Burn', 1], ['Randomize', 2], ['Get Nouns', 3], ['Get Nouns and Adjectives', 4]]), class: ['action-select'] %>
-  <button type="button" class="add-action-btn">Add</button>
+  <%= select_tag :method, options_for_select([['Burn', 1], ['Randomize', 2], ['Get Nouns', 3], ['Get Nouns and Adjectives', 4], ['Get Adjectives', 5], ['Get Verbs', 6], ['Remove Nouns', 7], ['Remove Adjectives', 8], ['Remove Verbs', 9], ['Splice Words', 10], ['Splice Sentences', 11]]), class: ['action-select'] %>
+  <button type="button" class="add-action-btn">Add Procedure</button>
 
-  <%= submit_tag("Manipulate") %>
+  <%= submit_tag("Manipulate Text") %>
 <% end %>
 
 <script type="text/javascript">
@@ -26,11 +21,18 @@ $(function(){
     seq += 1;
     var selected_action_id = $('.action-select').val();
     var selected_text = $('.action-select option[value='+selected_action_id+']').text();
-    var block = '<div class="action-item"> \
-      <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
-      <span>'+selected_text+'</span> \
-      <input name="operations['+current+'][args]" type="text"> \
-    </div>';
+    if (selected_action_id == '10' || selected_action_id == '11')
+      var block = '<div class="action-item"> \
+        <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
+        <span>'+selected_text+'</span> \
+        <textarea name="operations['+current+'][args]" type="text"></textarea> \
+      </div>';
+    else
+      var block = '<div class="action-item"> \
+        <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
+        <span>'+selected_text+'</span> \
+        <input type="hidden" name="operations['+current+'][args]" type="text"> \
+      </div>';
     var item = $(block)
     $('.added-actions').append(item);
   })
