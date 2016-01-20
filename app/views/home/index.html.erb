@@ -29,7 +29,7 @@ $(function(){
     var block = '<div class="action-item"> \
       <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
       <span>'+selected_text+'</span> \
-      <input name="operations['+current+'][extra_args]" type="text"> \
+      <input name="operations['+current+'][args]" type="text"> \
     </div>';
     var item = $(block)
     $('.added-actions').append(item);
