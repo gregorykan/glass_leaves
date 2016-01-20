@@ -1,2 +1,38 @@
 <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<%= form_tag(controller: "home", action: "manipulate", method: "post") do %>
+  <%= label_tag(:initial_text, "Text to manipulate:") %>
+  <%= text_area_tag(:initial_text) %>
+
+  <div class="added-actions">
+<!--     <div class="action-item">
+      <input type="hidden" value="1" name="operations[1][name]">
+      <span>Burn</span>
+      <input name="operations[1][extra_args]" type="text">
+    </div> -->
+  </div>
+
+  <%= select_tag :method, options_for_select([['Burn', 1], ['Randomize', 2], ['Get Nouns', 3], ['Get Nouns and Adjectives', 4]]), class: ['action-select'] %>
+  <button type="button" class="add-action-btn">Add</button>
+
+  <%= submit_tag("Manipulate") %>
+<% end %>
+
+<script type="text/javascript">
+$(function(){
+  var seq = 1;
+  $('.add-action-btn').click(function(){
+    var current = seq;
+    seq += 1;
+    var selected_action_id = $('.action-select').val();
+    var selected_text = $('.action-select option[value='+selected_action_id+']').text();
+    var block = '<div class="action-item"> \
+      <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
+      <span>'+selected_text+'</span> \
+      <input name="operations['+current+'][extra_args]" type="text"> \
+    </div>';
+    var item = $(block)
+    $('.added-actions').append(item);
+  })
+})
+</script>
