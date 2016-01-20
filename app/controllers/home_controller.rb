@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @procedures ||= procedures
   end
 
   def manipulate
@@ -27,6 +28,10 @@ class HomeController < ApplicationController
       "10" => "splice_words",
       "11" => "splice_sentences"
     }
+  end
+
+  def procedures
+    [['Burn', 1], ['Randomize', 2], ['Get Nouns', 3], ['Get Nouns and Adjectives', 4], ['Get Adjectives', 5], ['Get Verbs', 6], ['Remove Nouns', 7], ['Remove Adjectives', 8], ['Remove Verbs', 9], ['Splice Words', 10], ['Splice Sentences', 11]]
   end
 
 end
