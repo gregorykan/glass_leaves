@@ -1,17 +1,33 @@
-<h1 class="page-header">glass.leaves</h1>
+<div class="container">
+ <h1 class="page-header">glass.leaves</h1>
+</div>
 
-<%= form_tag(controller: "home", action: "manipulate", method: "post") do %>
-  <%= label_tag(:initial_text, "Text to manipulate:") %>
-  <%= text_area_tag(:initial_text, nil, :class => ['initial-text-box']) %>
-
-  <div class="added-actions">
-  </div>
-
-  <%= select_tag :method, options_for_select(@procedures), class: ['action-select'] %>
-  <button type="button" class="add-action-btn">Add Procedure</button>
-
-  <%= submit_tag("Manipulate Text", :class => ['submit-btn']) %>
-<% end %>
+<div id ="main-container" class="container">
+    <%= form_tag(controller: "home", action: "manipulate", method: "post") do %>
+      <div class="row">
+        <div class="col-xs-7">
+          <%= text_area_tag(:initial_text, nil, :class => ['initial-text-box']) %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-7">
+          <div class="added-actions">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-7">
+          <%= select_tag :method, options_for_select(@procedures), prompt: 'Choose a procedure', class: ['action-select'] %>
+          <button type="button" class="add-action-btn">Add Procedure</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-7">
+          <%= submit_tag("Manipulate Text", :class => ['submit-btn']) %>
+        </div>
+      </div>
+    <% end %>
+</div>
 
 <script type="text/javascript">
 $(function(){
