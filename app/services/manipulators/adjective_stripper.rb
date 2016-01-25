@@ -6,14 +6,9 @@ module Manipulators
 
     def strip
       word_array = split
-      word_array.each do |word|
-        get_adjectives.each do |adjective|
-          if word == adjective
-            word_array.delete(word)
-          end
-        end
-      end
-      word_array.join(" ")
+      adjective_array = get_adjectives
+      selected_words = word_array.reject { |x| adjective_array.include? x }
+      selected_words.join(" ")
     end
 
     def get_adjectives
