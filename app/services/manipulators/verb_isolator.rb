@@ -5,7 +5,10 @@ module Manipulators
     end
 
     def isolate
-      get_verbs.join(" ")
+      word_array = split
+      verb_array = get_verbs
+      selected_words = word_array.select { |x| verb_array.include? x }
+      selected_words.join(" ")
     end
 
     def get_verbs
@@ -16,7 +19,17 @@ module Manipulators
       past_tense_verbs = eng_tagger.get_past_tense_verbs(tagged_string).map { |k, v| k }
       present_verbs = eng_tagger.get_present_verbs(tagged_string).map { |k, v| k }
       passive_verbs = eng_tagger.get_passive_verbs(tagged_string).map { |k, v| k }
-      base_present_verbs + gerund_verbs + infinitive_verbs + past_tense_verbs + present_verbs + passive_verbs
+      base_present_verbs + gerund_verbs + infinitive_verbs + past_tense_verbs + present_verbs + passive_verbs + punctuation_array
+    end
+
+    def punctuation_array
+      ["+",",",".","-","'","\"","&","!","?",":",";","#","~","=","/","$","£","^","(",")","_","<",">"]
+    end
+
+    def split
+      aerated = eng_tagger.get_sentences(@string)
+      joined = aerated.join(" ")
+      word_array = joined.split(" ")
     end
 
     def eng_tagger
