@@ -1,16 +1,29 @@
 module Manipulators
   class NounIsolator
-    def initialize(string)
+     def initialize(string)
       @string = string
     end
 
     def isolate
-      get_nouns.join(" ")
+      word_array = split
+      noun_array = get_nouns
+      selected_words = word_array.select { |x| noun_array.include? x }
+      selected_words.join(" ")
     end
 
     def get_nouns
       tagged_string = eng_tagger.add_tags(@string)
-      eng_tagger.get_nouns(tagged_string).map { |k, v| k }
+      eng_tagger.get_nouns(tagged_string).map { |k, v| k } + punctuation_array
+    end
+
+    def split
+      aerated = eng_tagger.get_sentences(@string)
+      joined = aerated.join(" ")
+      word_array = joined.split(" ")
+    end
+
+    def punctuation_array
+      ["+",",",".","-","'","\"","&","!","?",":",";","#","~","=","/","$","£","^","(",")","_","<",">"]
     end
 
     def eng_tagger
