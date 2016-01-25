@@ -13,12 +13,13 @@ module Manipulators
     end
 
     def split
-      splitter(@string).split
+      aerated = eng_tagger.get_sentences(@string)
+      joined = aerated.join(" ")
+      word_array = joined.split(" ")
     end
 
-    def splitter(string)
-      @splitter ||= Manipulators::Splitter.new(string)
+    def eng_tagger
+      @eng_tagger ||= EngTagger.new
     end
-
   end
 end

@@ -22,12 +22,9 @@ module Manipulators
     end
 
     def split
-      eng_tagger.get_sentences(@string)
-      binding.pry
-    end
-
-    def splitter(string)
-      @splitter ||= Manipulators::Splitter.new(string)
+      aerated = eng_tagger.get_sentences(@string)
+      joined = aerated.join(" ")
+      word_array = joined.split(" ")
     end
 
     def eng_tagger
