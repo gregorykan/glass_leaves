@@ -8,7 +8,7 @@ module Manipulators
       word_array = split
       random_number = rand(word_array.length)
       words_to_burn = word_array.sample(random_number)
-      burnt_array = word_array - words_to_burn
+      burnt_array = word_array.reject { |x| words_to_burn.include? x }
       burnt_array.join(" ")
     end
 
