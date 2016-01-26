@@ -4,10 +4,21 @@ class HomeController < ApplicationController
   end
 
   def manipulate
-    method_array = params[:operations].values.map { |x| args = [] if x["args"].empty?; args = x["args"] if x["args"].present?; {method: method_id_to_name_hash[x["name"]], args: args} }
     initial_string = params[:initial_text]
-    @manipulated = manipulator(initial_string, method_array).chain
+    @manipulated = manipulator(initial_string, method_array(params)).chain
     render 'home/manipulated'
+  end
+
+  def method_array(params)
+    method_array = params[:operations].values.map do |x|
+      if x["args"].present?
+        args = x["args"]
+      else
+        args = []
+      end
+      { method: method_id_to_name_hash[x["name"]],
+        args: args }
+    end
   end
 
   def manipulator(initial_string, method_array)
@@ -26,7 +37,8 @@ class HomeController < ApplicationController
       "8" => "strip_adjectives",
       "9" => "strip_verbs",
       "10" => "splice_words",
-      "11" => "splice_sentences"
+      "11" => "splice_sentences",
+      "12" => "replace_string",
     }
   end
 
@@ -41,7 +53,8 @@ class HomeController < ApplicationController
     ['Remove Adjectives', 8],
     ['Remove Verbs', 9],
     ['Splice Words', 10],
-    ['Splice Sentences', 11]]
+    ['Splice Sentences', 11],
+    ['Replace X with Y', 12]]
   end
 
 end
