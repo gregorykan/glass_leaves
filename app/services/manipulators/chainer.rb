@@ -10,7 +10,11 @@ module Manipulators
     end
 
     def replace_string(initial_string, target_string, replacement_string)
-      Manipulators::Replacer.new(initial_string, target_string, replacement_string).replace
+      Manipulators::StringReplacer.new(initial_string, target_string, replacement_string).replace
+    end
+
+    def replace_nouns(string, replacement_string)
+      Manipulators::NounReplacer.new(string, replacement_string).replace
     end
 
     def isolate_adjectives(string)
