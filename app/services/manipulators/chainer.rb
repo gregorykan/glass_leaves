@@ -9,6 +9,10 @@ module Manipulators
       @methods_with_args.inject(@string) { |string, method_hash| send(method_hash[:method], string, *Array(method_hash[:args])) }
     end
 
+    def replace_string(initial_string, target_string, replacement_string)
+      Manipulators::Replacer.new(initial_string, target_string, replacement_string).replace
+    end
+
     def isolate_adjectives(string)
       Manipulators::AdjectiveIsolator.new(string).isolate
     end
@@ -46,7 +50,6 @@ module Manipulators
     end
 
     def splice_words(string_a, string_b)
-      puts string_a, string_b
       Manipulators::WordSplicer.new(string_a, string_b).splice
     end
 
