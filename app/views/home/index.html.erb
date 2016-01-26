@@ -36,13 +36,13 @@ $(function(){
     if (selected_action_id == '10' || selected_action_id == '11')
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
-        <span>'+selected_text+'</span> \
+        <span class="action-label">'+selected_text+'</span> \
         <textarea name="operations['+current+'][args]" type="text" class="action-args"></textarea> \
       </div>';
     else
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
-        <span>'+selected_text+'</span> \
+        <span class="action-label">'+selected_text+'</span> \
         <input type="hidden" name="operations['+current+'][args]" type="text"> \
       </div>';
     var item = $(block)
