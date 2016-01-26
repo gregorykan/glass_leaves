@@ -12,13 +12,17 @@ class HomeController < ApplicationController
   def method_array(params)
     method_array = params[:operations].values.map do |x|
       if x["args"].present?
-        args = x["args"]
+        args = x["args"].values
       else
         args = []
       end
       { method: method_id_to_name_hash[x["name"]],
         args: args }
     end
+  end
+
+  def operations
+    params[:operations].values.map{|operation| operation.merge args: operation[:args].values }
   end
 
   def manipulator(initial_string, method_array)
@@ -39,6 +43,7 @@ class HomeController < ApplicationController
       "10" => "splice_words",
       "11" => "splice_sentences",
       "12" => "replace_string",
+      "13" => "replace_nouns",
     }
   end
 
@@ -54,7 +59,8 @@ class HomeController < ApplicationController
     ['Remove Verbs', 9],
     ['Splice Words', 10],
     ['Splice Sentences', 11],
-    ['Replace X with Y', 12]]
+    ['Replace X with Y', 12],
+    ['Replace Nouns with X', 13]]
   end
 
 end
