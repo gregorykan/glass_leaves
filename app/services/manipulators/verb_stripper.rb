@@ -5,7 +5,7 @@ module Manipulators
     end
 
     def strip
-      word_array = split
+      word_array = split_string_into_words
       verb_array = get_verbs
       selected_words = word_array.reject { |x| verb_array.include? x }
       selected_words.join(" ")
@@ -22,7 +22,7 @@ module Manipulators
       base_present_verbs + gerund_verbs + infinitive_verbs + past_tense_verbs + present_verbs + passive_verbs
     end
 
-    def split
+    def split_string_into_words
       aerated = eng_tagger.get_sentences(@string)
       joined = aerated.join(" ")
       word_array = joined.split(" ")

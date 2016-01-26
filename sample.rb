@@ -27,20 +27,3 @@ string_b = "Among the attempts to unify quantum theory and gravity, string theor
 Loop quantum gravity, by contrast, is concerned less with the matter that inhabits space-time than with the quantum properties of space-time itself. In loop quantum gravity, or LQG, space-time is a network. The smooth background of Einstein’s theory of gravity is replaced by nodes and links to which quantum properties are assigned. In this way, space is built up of discrete chunks. LQG is in large part a study of these chunks.
 
 This approach has long been thought incompatible with string theory. Indeed, the conceptual differences are obvious and profound. For starters, LQG studies bits of space-time, whereas string theory investigates the behavior of objects within space-time. Specific technical problems separate the fields. String theory requires that space-time have 10 dimensions; LQG doesn’t work in higher dimensions. String theory also implies the existence of supersymmetry, in which all known particles have yet-undiscovered partners. Supersymmetry isn’t a feature of LQG."
-
-methods_with_args = [{method: "splice_sentences", args: [string_b]}]
-Manipulators::Chainer.new(initial_string, methods_with_args).chain
-
-# ChainBuiilder.new().meth1("bhal").meth2.meth3(nil)
-
-# class ChaninBuilder
-#   attr_reader :chain
-#   def initialize
-#     @chain = []
-#   end
-
-#   def method_missing(name, *args)
-#     chain << {method: name, args: args}
-#     self
-#   end
-# end

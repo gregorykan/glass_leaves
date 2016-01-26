@@ -5,12 +5,12 @@ module Manipulators
     end
 
     def randomize
-      word_array = split
+      word_array = split_string_into_words
       word_array.shuffle!
       word_array.join(" ")
     end
 
-    def split
+    def split_string_into_words
       aerated = eng_tagger.get_sentences(@string)
       joined = aerated.join(" ")
       word_array = joined.split(" ")

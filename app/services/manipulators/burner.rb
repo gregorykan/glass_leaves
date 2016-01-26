@@ -5,14 +5,14 @@ module Manipulators
     end
 
     def burn
-      word_array = split
+      word_array = split_string_into_words
       random_number = rand(word_array.length)
       words_to_burn = word_array.sample(random_number)
       burnt_array = word_array.reject { |x| words_to_burn.include? x }
       burnt_array.join(" ")
     end
 
-    def split
+    def split_string_into_words
       aerated = eng_tagger.get_sentences(@string)
       joined = aerated.join(" ")
       word_array = joined.split(" ")

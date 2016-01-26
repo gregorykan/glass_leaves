@@ -5,7 +5,7 @@ module Manipulators
     end
 
     def isolate
-      word_array = split
+      word_array = split_string_into_words
       noun_array = get_nouns
       selected_words = word_array.select { |x| noun_array.include? x }
       selected_words.join(" ")
@@ -16,7 +16,7 @@ module Manipulators
       eng_tagger.get_nouns(tagged_string).map { |k, v| k } + punctuation_array
     end
 
-    def split
+    def split_string_into_words
       aerated = eng_tagger.get_sentences(@string)
       joined = aerated.join(" ")
       word_array = joined.split(" ")
