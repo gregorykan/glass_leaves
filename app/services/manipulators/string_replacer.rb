@@ -1,5 +1,5 @@
 module Manipulators
-  class Replacer
+  class StringReplacer
     def initialize(initial_string, target_string, replacement_string)
       @initial_string = initial_string
       @target_string = target_string
