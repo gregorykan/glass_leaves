@@ -33,7 +33,7 @@ $(function(){
     seq += 1;
     var selected_action_id = $('.action-select').val();
     var selected_text = $('.action-select option[value='+selected_action_id+']').text();
-    if (selected_action_id == '10' || selected_action_id == '11')
+    if (selected_action_id == '10' || selected_action_id == '11' || selected_action_id == '14')
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
         <span class="action-label">'+selected_text+'</span><br> \

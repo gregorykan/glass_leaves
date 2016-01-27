@@ -11,7 +11,9 @@ class HomeController < ApplicationController
 
   def method_array(params)
     method_array = params[:operations].values.map do |x|
-      if x["args"].present?
+      if x["args"].values == [""]
+        args = []
+      elsif x["args"].present?
         args = x["args"].values
       else
         args = []
@@ -44,23 +46,27 @@ class HomeController < ApplicationController
       "11" => "splice_sentences",
       "12" => "replace_string",
       "13" => "replace_nouns",
+      "14" => "swap_nouns",
     }
   end
 
   def procedures
-    [['Burn', 1],
-    ['Randomize', 2],
-    ['Get Nouns', 3],
-    ['Get Nouns and Adjectives', 4],
-    ['Get Adjectives', 5],
-    ['Get Verbs', 6],
-    ['Remove Nouns', 7],
-    ['Remove Adjectives', 8],
-    ['Remove Verbs', 9],
-    ['Splice Words', 10],
-    ['Splice Sentences', 11],
-    ['Replace X with Y', 12],
-    ['Replace Nouns with X', 13]]
+    [
+      ['Burn', 1],
+      ['Randomize', 2],
+      ['Get Nouns', 3],
+      ['Get Nouns and Adjectives', 4],
+      ['Get Adjectives', 5],
+      ['Get Verbs', 6],
+      ['Remove Nouns', 7],
+      ['Remove Adjectives', 8],
+      ['Remove Verbs', 9],
+      ['Splice Words', 10],
+      ['Splice Sentences', 11],
+      ['Replace X with Y', 12],
+      ['Replace Nouns with X', 13],
+      ['Swap Nouns', 14]
+    ]
   end
 
 end

@@ -9,6 +9,10 @@ module Manipulators
       @methods_with_args.inject(@string) { |string, method_hash| send(method_hash[:method], string, *Array(method_hash[:args])) }
     end
 
+    def swap_nouns(string_a, string_b)
+      Manipulators::NounSwapper.new(string_a, string_b).swap
+    end
+
     def replace_string(initial_string, target_string, replacement_string)
       Manipulators::StringReplacer.new(initial_string, target_string, replacement_string).replace
     end
