@@ -2,17 +2,20 @@
 
 Services:
 
-- Randomize
 - Burn
-- Get nouns
-- Remove nouns
-- Get verbs
-- Remove verbs
-- Get adjectives
-- Remove adjectives
-- Get nouns and adjectives
-- Word splice
-- Sentence splice
+- Randomize
+- Get Nouns
+- Get Nouns and Adjectives
+- Get Adjectives
+- Get Verbs
+- Remove Nouns
+- Remove Adjectives
+- Remove Verbs
+- Splice Words
+- Splice Sentences
+- Replace X with Y
+- Replace Nouns with X
+- Swap Nouns
 
 Gems:
 
