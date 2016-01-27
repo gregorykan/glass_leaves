@@ -1,24 +1,24 @@
 <div id ="main-container" class="container">
     <%= form_tag(controller: "home", action: "manipulate", method: "post") do %>
       <div class="row">
-        <div class="col-xs-7">
+        <div class="col-xs-5">
           <%= text_area_tag(:initial_text, nil, :class => ['initial-text-box'], :placeholder => "Text to manipulate", rows: 15, cols: 55) %>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-7">
+        <div class="col-xs-5">
           <div class="added-actions">
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-7">
+        <div class="col-xs-5">
           <%= select_tag :method, options_for_select(@procedures), prompt: 'Choose a manipulation', class: ['action-select'] %>
           <button type="button" class="add-action-btn">Add Manipulation</button>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-7">
+        <div class="col-xs-5">
           <%= submit_tag("Manipulate Text", :class => ['submit-btn']) %>
         </div>
       </div>
