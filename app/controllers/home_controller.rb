@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @procedures ||= procedures
+    @procedures ||= procedures.sort!
   end
 
   def manipulate
