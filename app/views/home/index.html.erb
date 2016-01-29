@@ -1,7 +1,7 @@
 <div id ="main-container" class="container">
     <%= form_tag(controller: "home", action: "manipulate", method: "post") do %>
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-5">
           <%= text_area_tag(:initial_text, nil, :class => ['initial-text-box'], :placeholder => "Text to manipulate", rows: 15, cols: 55) %>
         </div>
         <div class="col-xs-7">
