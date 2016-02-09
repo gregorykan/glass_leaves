@@ -2,13 +2,17 @@ body {
   font-family: Helvetica;
 }
 
-.action-label {
-  border: 1px;
-  border-style: dotted;
-}
+// .action-label {
+//   border: 1px;
+//   border-style: dotted;
+// }
 
 .action-item {
-  margin: 5px;
+  border: 1px;
+  border-style: solid;
+  border-color: lightgray;
+  margin: 20px;
+  padding: 5px;
 }
 
 .action-select {
@@ -27,5 +31,4 @@ body {
   border: 1px;
   border-style: solid;
   border-color: lightgray;
-  margin: 10px;
 }
