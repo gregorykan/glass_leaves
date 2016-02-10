@@ -8,7 +8,6 @@ body {
   border-color: black;
   margin: 15px;
   padding: 10px;
-  position: relative;
 }
 
 .action-select {
@@ -53,4 +52,9 @@ body {
 
 .instructions-text {
   font-size: small;
+}
+
+.remove-action-btn {
+  position: absolute;
+  right: 15px;
 }
