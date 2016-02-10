@@ -28,5 +28,4 @@ Platforms:
 
 TODO:
 
-- Give user ability to remove procedures
 - Dynamic rendering of transformed text in textbox, or at least the same page
