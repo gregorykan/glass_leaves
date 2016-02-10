@@ -27,6 +27,29 @@ body {
   background-color: white;
   color: black;
   border: 2px solid black;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
+}
+
+.add-action-btn {
+  border: 2px solid black;
+  color: black;
+  background-color: white;
+  padding: 10px;
+}
+
+.submit-btn {
+  border: 2px solid black;
+  color: black;
+  background-color: white;
+  padding: 10px;
+}
+
+.action-select {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.instructions-text {
+  font-size: small;
 }
