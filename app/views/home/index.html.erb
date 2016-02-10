@@ -9,8 +9,8 @@
           <p>2. Choose a manipulation procedure and click 'Add Manipulation'</p>
           <p>3. (You can add as many procedures as you like)</p>
           <p>4. (Some manipulations require a secondary text: Splicers, Swappers, Replacers)</p>
-          <p>5. When done, click 'Manipulate Text'</p>
-          <p>6. (Not filling in the secondary text boxes will cause an error - just go back in your browser if this happens)</p>
+          <p>5. (Not filling in the secondary text boxes will cause an error - just go back in your browser if this happens)</p>
+          <p>6. When done, click 'Manipulate Text'</p>
           <p>7. (Swappers, Splicers and Replacers are my fav atm!)</p>
           <p>8. (The word class tagger isn't very good at verbs)</p>
           <p>9. (Feel free to email me if you have any questions or suggestions: kan.gregory@gmail.com)</p>
@@ -40,6 +40,7 @@
 
 <script type="text/javascript">
 $(function(){
+
   var seq = 1;
   $('.add-action-btn').click(function(){
     var current = seq;
@@ -50,7 +51,8 @@ $(function(){
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
         <span class="action-label">'+selected_text+'</span><br> \
-        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" placeholder="Text to splice with" rows="7" cols="44"></textarea> \
+        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" placeholder="Text to splice with" rows="7" cols="30"></textarea> \
+        <button type="button" class="remove-action-btn">X</button> \
       </div>';
     else if (selected_action_id == '12')
       var block = '<div class="action-item"> \
@@ -58,27 +60,35 @@ $(function(){
         <span class="action-label">'+selected_text+'</span><br> \
         <textarea name="operations['+current+'][args][0]" type="text" class="action-args" placeholder="Target"></textarea> \
         <textarea name="operations['+current+'][args][1]" type="text" class="action-args" placeholder="Replacement"></textarea> \
+        <button type="button" class="remove-action-btn">X</button> \
       </div>';
     else if (selected_action_id == '13')
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
         <span class="action-label">'+selected_text+'</span><br> \
         <textarea name="operations['+current+'][args][0]" type="text" class="action-args" placeholder="Replacement"></textarea> \
+        <button type="button" class="remove-action-btn">X</button> \
       </div>';
     else if (selected_action_id == '14')
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
         <span class="action-label">'+selected_text+'</span><br> \
-        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" rows="7" cols="44" placeholder="Text to swap nouns with"></textarea> \
+        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" rows="7" cols="30" placeholder="Text to swap nouns with"></textarea> \
+        <button type="button" class="remove-action-btn">X</button> \
       </div>';
     else
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
         <span class="action-label">'+selected_text+'</span> \
         <input type="hidden" name="operations['+current+'][args][0]" type="text"> \
+        <button type="button" class="remove-action-btn">X</button> \
       </div>';
     var item = $(block)
     $('.added-actions').append(item);
+    $('.remove-action-btn').click(function() {
+      $(this).parent().remove();
+    });
   })
+
 })
 </script>
