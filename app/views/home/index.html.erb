@@ -2,7 +2,7 @@
     <%= form_tag(controller: "home", action: "manipulate", method: "post") do %>
       <div class="row">
         <div class="col-xs-5">
-          <%= text_area_tag(:initial_text, nil, :class => ['initial-text-box'], :placeholder => "Text to manipulate", rows: 15, cols: 55) %>
+          <%= text_area_tag(:initial_text, nil, :class => ['initial-text-box'], :placeholder => "Text to manipulate", :required => true, rows: 15, cols: 55) %>
         </div>
         <div class="col-xs-7">
           <div class="instructions-text">
@@ -53,36 +53,36 @@ $(function(){
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
         <span class="action-label">'+selected_text+'</span><br> \
-        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" placeholder="Text to splice with" rows="7" cols="30"></textarea> \
+        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" placeholder="Text to splice with" rows="7" cols="30" required /></textarea> \
         <button type="button" class="remove-action-btn">x</button> \
       </div>';
     else if (selected_action_id == '12')
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
         <span class="action-label">'+selected_text+'</span><br> \
-        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" placeholder="Target"></textarea> \
-        <textarea name="operations['+current+'][args][1]" type="text" class="action-args" placeholder="Replacement"></textarea> \
+        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" placeholder="Target" required /></textarea> \
+        <textarea name="operations['+current+'][args][1]" type="text" class="action-args" placeholder="Replacement" required /></textarea> \
         <button type="button" class="remove-action-btn">x</button> \
       </div>';
     else if (selected_action_id == '13')
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
         <span class="action-label">'+selected_text+'</span><br> \
-        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" placeholder="Replacement"></textarea> \
+        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" placeholder="Replacement" required /></textarea> \
         <button type="button" class="remove-action-btn">x</button> \
       </div>';
     else if (selected_action_id == '14')
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
         <span class="action-label">'+selected_text+'</span><br> \
-        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" rows="7" cols="30" placeholder="Text to swap nouns with"></textarea> \
+        <textarea name="operations['+current+'][args][0]" type="text" class="action-args" rows="7" cols="30" placeholder="Text to swap nouns with" required /></textarea> \
         <button type="button" class="remove-action-btn">x</button> \
       </div>';
     else
       var block = '<div class="action-item"> \
         <input type="hidden" value="'+selected_action_id+'" name="operations['+current+'][name]"> \
         <span class="action-label">'+selected_text+'</span> \
-        <input type="hidden" name="operations['+current+'][args][0]" type="text"> \
+        <input type="hidden" name="operations['+current+'][args][0]" type="text" required /> \
         <button type="button" class="remove-action-btn">x</button> \
       </div>';
     var item = $(block)
