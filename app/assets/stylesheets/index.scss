@@ -3,7 +3,7 @@ body {
 }
 
 .action-item {
-  border: 1px;
+  border: 2px;
   border-style: solid;
   border-color: black;
   margin: 15px;
@@ -26,27 +26,27 @@ body {
   border-radius: 50%;
   background-color: white;
   color: black;
-  border: 2px solid black;
+  border: 1px solid black;
   width: 30px;
   height: 30px;
 }
 
 .add-action-btn {
-  border: 2px solid black;
+  border: 1px solid black;
   color: black;
   background-color: white;
   padding: 10px;
 }
 
 .submit-btn {
-  border: 2px solid black;
+  border: 1px solid black;
   color: black;
   background-color: white;
   padding: 10px;
 }
 
 .action-select {
-  border: 2px solid black;
+  border: 1px solid black;
   padding: 10px;
 }
 
@@ -57,4 +57,5 @@ body {
 .remove-action-btn {
   position: absolute;
   right: 15px;
+  border: 2px solid black;
 }
