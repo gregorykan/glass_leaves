@@ -76,6 +76,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    markov_chains (0.1.1)
     method_source (0.8.2)
     mime-types (2.99)
     mini_portile2 (2.0.0)
@@ -177,6 +178,7 @@ DEPENDENCIES
   engtagger
   jbuilder (~> 2.0)
   jquery-rails
+  markov_chains
   pg
   pry-nav
   pry-rails
