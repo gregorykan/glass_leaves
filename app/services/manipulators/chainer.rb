@@ -64,5 +64,9 @@ module Manipulators
     def splice_sentences(string_a, string_b)
       Manipulators::SentenceSplicer.new(string_a, string_b).splice
     end
+
+    def generate_markov_chain(string)
+      Generators::MarkovChainer.new(string).generate_chain
+    end
   end
 end
