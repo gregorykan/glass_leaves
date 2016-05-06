@@ -6,7 +6,7 @@ module Generators
     end
 
     def generate_chain
-      chain_generator.get_sentences(approximate_number_of_sentences_in_text).join
+      chain_generator.get_sentences(approximate_number_of_sentences_in_text).compact.join
     end
 
     def approximate_number_of_sentences_in_text
