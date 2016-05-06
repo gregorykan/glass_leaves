@@ -47,6 +47,7 @@ class HomeController < ApplicationController
       "12" => "replace_string",
       "13" => "replace_nouns",
       "14" => "swap_nouns",
+      "15" => "generate_markov_chain",
     }
   end
 
@@ -65,7 +66,8 @@ class HomeController < ApplicationController
       ['Splice Sentences', 11],
       ['Replace X with Y', 12],
       ['Replace Nouns with X', 13],
-      ['Swap Nouns', 14]
+      ['Swap Nouns', 14],
+      ['Generate Markov Chain', 15]
     ]
   end
 
