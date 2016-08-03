@@ -1,43 +1,46 @@
 <div id ="main-container" class="container">
-    <%= form_tag(controller: "home", action: "manipulate", method: "post") do %>
-      <div class="row">
-        <div class="col-xs-5">
-          <%= text_area_tag(:initial_text, nil, :class => ['initial-text-box'], :placeholder => "Text to manipulate", :required => true, rows: 15, cols: 55) %>
-        </div>
-        <div class="col-xs-7">
-          <div class="instructions-text">
-            <span>1. Add some text to start with</span><br>
-            <span>2. Choose a manipulation procedure and click 'Add Manipulation'</span><br>
-            <span>3. (You can add as many procedures as you like)</span><br>
-            <span>4. (Some manipulations require a secondary text: Splicers, Swappers, Replacers)</span><br>
-            <span>5. When done, click 'Manipulate Text'</span><br>
-            <span>6. (Swappers, Splicers and Replacers are my fav atm!)</span><br>
-            <span>7. (The word class tagger isn't very good at verbs)</span><br>
-            <span>8. (Feel free to email me if you have any questions or suggestions: kan.gregory@gmail.com)</span><br>
-            <span>9. (No data is collected on/through this app)</span><br>
-            <span>10. (The full source can be found here: https://github.com/gregorykan/glass_leaves)</span><br>
-            <span>11. (Check out the new Markov Chain Generator!!!!)</span><br>
-          </div>
+  <%= form_tag(controller: "home", action: "manipulate", method: "post") do %>
+    <div class="row">
+      <div class="col-xs-5">
+        <% if flash[:notice] %>
+          <span class="notice"><%= flash[:notice] %></span>
+        <% end %>
+        <%= text_area_tag(:initial_text, nil, :class => ['initial-text-box'], :placeholder => "Text to manipulate", :required => true, rows: 15, cols: 55) %>
+      </div>
+      <div class="col-xs-7">
+        <div class="instructions-text">
+          <span>1. Add some text to start with</span><br>
+          <span>2. Choose a manipulation procedure and click 'Add Manipulation'</span><br>
+          <span>3. (You can add as many procedures as you like)</span><br>
+          <span>4. (Some manipulations require a secondary text: Splicers, Swappers, Replacers)</span><br>
+          <span>5. When done, click 'Manipulate Text'</span><br>
+          <span>6. (Swappers, Splicers and Replacers are my fav atm!)</span><br>
+          <span>7. (The word class tagger isn't very good at verbs)</span><br>
+          <span>8. (Feel free to email me if you have any questions or suggestions: kan.gregory@gmail.com)</span><br>
+          <span>9. (No data is collected on/through this app)</span><br>
+          <span>10. (The full source can be found here: https://github.com/gregorykan/glass_leaves)</span><br>
+          <span>11. (Check out the new Markov Chain Generator!!!!)</span><br>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-4">
-          <div class="added-actions">
-          </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="added-actions">
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-5">
-          <%= select_tag :method, options_for_select(@procedures), prompt: 'Choose a manipulation', class: ['action-select'] %>
-          <button type="button" class="add-action-btn">Add Manipulation</button>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-5">
+        <%= select_tag :method, options_for_select(@procedures), prompt: 'Choose a manipulation', class: ['action-select'] %>
+        <button type="button" class="add-action-btn">Add Manipulation</button>
       </div>
-      <div class="row">
-        <div class="col-xs-5">
-          <%= submit_tag("Manipulate Text", :class => ['submit-btn']) %>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-5">
+        <%= submit_tag("Manipulate Text", :class => ['submit-btn']) %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 </div>
 
 <script type="text/javascript">
