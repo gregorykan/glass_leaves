@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
     self.all.map do |event|
       time = event.created_at.in_time_zone("Auckland")
       procedure = event.comment
-      puts "#{procedure} at #{time}"
+      puts "#{time}: #{procedure}"
     end
   end
 end
