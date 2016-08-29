@@ -68,5 +68,13 @@ module Manipulators
     def generate_markov_chain(string)
       Generators::MarkovChainer.new(string).generate_chain
     end
+    
+    def shuffle_nouns(string)
+      Manipulators::NounShuffler.new(string).shuffle
+    end
+    
+    def shuffle_verbs(string)
+      Manipulators::VerbShuffler.new(string).shuffle
+    end
   end
 end
