@@ -57,7 +57,10 @@ class HomeController < ApplicationController
       "14" => "swap_nouns",
       "15" => "generate_markov_chain",
       "16" => "shuffle_nouns",
-      "17" => "shuffle_verbs"
+      "17" => "shuffle_verbs",
+      "18" => "strip_punctuation",
+      "19" => "make_lowercase",
+      "20" => "make_uppercase"
     }
   end
 
@@ -79,7 +82,10 @@ class HomeController < ApplicationController
       ['Swap Nouns', 14],
       ['Generate Markov Chain', 15],
       ['Shuffle Nouns', 16],
-      ['Shuffle Verbs', 17]
+      ['Shuffle Verbs', 17],
+      ['Strip Punctuation', 18],
+      ['Lowercasify', 19],
+      ['Uppercasify', 20]
     ]
   end
 
