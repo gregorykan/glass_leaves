@@ -76,5 +76,17 @@ module Manipulators
     def shuffle_verbs(string)
       Manipulators::VerbShuffler.new(string).shuffle
     end
+
+    def strip_punctuation(string)
+      Manipulators::PunctuationStripper.new(string).strip
+    end
+
+    def make_lowercase(string)
+      Manipulators::Lowercasifier.new(string).lowercase
+    end
+
+    def make_uppercase(string)
+      Manipulators::Uppercasifier.new(string).uppercase
+    end
   end
 end
