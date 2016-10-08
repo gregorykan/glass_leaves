@@ -89,8 +89,12 @@ module Manipulators
       Manipulators::Uppercasifier.new(string).uppercase
     end
 
-    def reverse(string)
-      Manipulators::Reverser.new(string).reverse
+    def reverse_words(string)
+      Manipulators::WordReverser.new(string).reverse
+    end
+
+    def reverse_sentences(string)
+      Manipulators::SentenceReverser.new(string).reverse
     end
   end
 end

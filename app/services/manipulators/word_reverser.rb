@@ -1,4 +1,4 @@
-class Manipulators::Reverser
+class Manipulators::WordReverser
   def initialize(string)
     @string = string
   end

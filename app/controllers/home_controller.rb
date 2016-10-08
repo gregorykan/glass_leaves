@@ -61,7 +61,8 @@ class HomeController < ApplicationController
       "18" => "strip_punctuation",
       "19" => "make_lowercase",
       "20" => "make_uppercase",
-      "21" => "reverse"
+      "21" => "reverse_words",
+      "22" => "reverse_sentences"
     }
   end
 
@@ -87,7 +88,8 @@ class HomeController < ApplicationController
       ['Strip Punctuation', 18],
       ['Lowercasify', 19],
       ['Uppercasify', 20],
-      ['Reverse', 21]
+      ['Reverse Words', 21],
+      ['Reverse Sentences', 22]
     ]
   end
 
