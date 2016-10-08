@@ -60,7 +60,8 @@ class HomeController < ApplicationController
       "17" => "shuffle_verbs",
       "18" => "strip_punctuation",
       "19" => "make_lowercase",
-      "20" => "make_uppercase"
+      "20" => "make_uppercase",
+      "21" => "reverse"
     }
   end
 
@@ -85,7 +86,8 @@ class HomeController < ApplicationController
       ['Shuffle Verbs', 17],
       ['Strip Punctuation', 18],
       ['Lowercasify', 19],
-      ['Uppercasify', 20]
+      ['Uppercasify', 20],
+      ['Reverse', 21]
     ]
   end
 

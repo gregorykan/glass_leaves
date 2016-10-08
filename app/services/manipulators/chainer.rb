@@ -68,11 +68,11 @@ module Manipulators
     def generate_markov_chain(string)
       Generators::MarkovChainer.new(string).generate_chain
     end
-    
+
     def shuffle_nouns(string)
       Manipulators::NounShuffler.new(string).shuffle
     end
-    
+
     def shuffle_verbs(string)
       Manipulators::VerbShuffler.new(string).shuffle
     end
@@ -87,6 +87,10 @@ module Manipulators
 
     def make_uppercase(string)
       Manipulators::Uppercasifier.new(string).uppercase
+    end
+
+    def reverse(string)
+      Manipulators::Reverser.new(string).reverse
     end
   end
 end
