@@ -62,7 +62,8 @@ class HomeController < ApplicationController
       "19" => "make_lowercase",
       "20" => "make_uppercase",
       "21" => "reverse_words",
-      "22" => "reverse_sentences"
+      "22" => "reverse_sentences",
+      "23" => "reverse_lines"
     }
   end
 
@@ -89,7 +90,8 @@ class HomeController < ApplicationController
       ['Lowercasify', 19],
       ['Uppercasify', 20],
       ['Reverse Words', 21],
-      ['Reverse Sentences', 22]
+      ['Reverse Sentences', 22],
+      ['Reverse Lines', 23]
     ]
   end
 

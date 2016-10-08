@@ -96,5 +96,9 @@ module Manipulators
     def reverse_sentences(string)
       Manipulators::SentenceReverser.new(string).reverse
     end
+
+    def reverse_lines(string)
+      Manipulators::LineReverser.new(string).reverse
+    end
   end
 end
