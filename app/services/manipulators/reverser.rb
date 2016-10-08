@@ -10,9 +10,7 @@ class Manipulators::Reverser
   end
 
   def split_string_into_words
-    aerated = eng_tagger.get_sentences(@string)
-    joined = aerated.join(" ")
-    word_array = joined.split(" ")
+    @string.split(" ")
   end
 
   def eng_tagger
