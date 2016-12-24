@@ -41,9 +41,10 @@ class HomeController < ApplicationController
   end
 
   def download
+    timestamp = DateTime.now.to_formatted_s(:short).gsub(':', '').gsub(/\s+/, '')
     content = params[:format]
     if content
-      send_data content, :filename => "#{DateTime.now.to_s}.txt"
+      send_data content, :filename => "manipulation-#{timestamp}.txt"
     end
   end
 
