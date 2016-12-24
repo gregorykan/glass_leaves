@@ -40,6 +40,13 @@ class HomeController < ApplicationController
     Manipulators::Chainer.new(initial_string, method_array)
   end
 
+  def download
+    content = params[:format]
+    if content
+      send_data content, :filename => "#{DateTime.now.to_s}.txt"
+    end
+  end
+
   def method_id_to_name_hash
     {
       "1" => "burn",
