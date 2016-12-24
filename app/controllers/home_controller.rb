@@ -44,16 +44,6 @@ class HomeController < ApplicationController
     Manipulators::Chainer.new(initial_string, method_array)
   end
 
-  def download
-    binding.pry
-    timestamp = DateTime.now.to_formatted_s(:short).gsub(':', '').gsub(/\s+/, '')
-    if text
-      send_data text, :filename => "manipulation-#{timestamp}.txt"
-    else
-      flash[:notice] = "The text field is empty"
-    end
-  end
-
   def method_id_to_name_hash
     {
       "1" => "burn",
