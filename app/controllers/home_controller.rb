@@ -5,12 +5,13 @@ class HomeController < ApplicationController
   end
 
   def manipulate
+    @procedures ||= procedures.sort!
     if params[:operations].present?
       initial_string = params[:initial_text]
       @manipulated = manipulator(initial_string, method_array(params)).chain
       manipulations = method_array(params).map { |x| x[:method] }.join(", ")
       Event.create!(event_type: "Manipulation", comment: manipulations)
-      render 'home/manipulated'
+      render 'home/index'
     else
       flash[:notice] = "Oops! Looks like you didn't Add a Manipulation. Click the 'Add Manipulation' button once you've made your selection(s)."
       redirect_to root_path
