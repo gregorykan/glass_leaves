@@ -12,6 +12,10 @@ class HomeController < ApplicationController
       manipulations = method_array(params).map { |x| x[:method] }.join(", ")
       Event.create!(event_type: "Manipulation", comment: manipulations)
       render 'home/index'
+    elsif params[:download].present?
+      timestamp = DateTime.now.to_formatted_s(:short).gsub(':', '').gsub(/\s+/, '')
+      send_data params[:initial_text], :disposition => 'attachment', :filename => "manipulation-#{timestamp}.txt"
+      return
     else
       flash[:notice] = "Oops! Looks like you didn't Add a Manipulation. Click the 'Add Manipulation' button once you've made your selection(s)."
       redirect_to root_path
