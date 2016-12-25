@@ -15,6 +15,7 @@ class HomeController < ApplicationController
     elsif params[:download].present?
       timestamp = DateTime.now.to_formatted_s(:short).gsub(':', '').gsub(/\s+/, '')
       send_data params[:initial_text], :disposition => 'attachment', :filename => "manipulation-#{timestamp}.txt"
+      Event.create!(event_type: "Download", comment: "download")
       return
     else
       flash[:notice] = "Oops! Looks like you didn't Add a Manipulation. Click the 'Add Manipulation' button once you've made your selection(s)."
