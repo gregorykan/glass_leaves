@@ -18,7 +18,7 @@ class HomeController < ApplicationController
       Event.create!(event_type: "Download", comment: "download")
       return
     else
-      flash[:notice] = "Oops! Looks like you didn't Add a Manipulation. Click the 'Add Manipulation' button once you've made your selection(s)."
+      flash[:notice] = "Looks like you didn't Add a Manipulation. Click the 'Add Manipulation' button once you've made your selection(s)."
       redirect_to root_path
     end
   end
