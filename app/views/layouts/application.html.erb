@@ -10,12 +10,12 @@
 <body>
   <div class="container">
     <% if flash[:notice] %>
-    <span class="notice"><%= flash[:notice] %></span>
-    <br>
+      <span class="notice"><%= flash[:notice] %></span>
+      <br>
     <% end %>
     <% if flash[:alert] %>
-    <span class="alert"><%= flash[:alert] %></span>
-    <br>
+      <span class="alert"><%= flash[:alert] %></span>
+      <br>
     <% end %>
     <% if user_signed_in? %>
       <span><%= link_to 'Account Settings', edit_user_registration_path %> | </span>

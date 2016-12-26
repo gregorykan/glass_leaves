@@ -2,10 +2,12 @@ class HomeController < ApplicationController
 
   def index
     @procedures ||= procedures.sort!
+    @user_texts ||= user_texts
   end
 
   def manipulate
     @procedures ||= procedures.sort!
+    @user_texts ||= user_texts
     if params[:operations].present?
       initial_string = params[:initial_text]
       @manipulated = manipulator(initial_string, method_array(params)).chain
@@ -17,9 +19,25 @@ class HomeController < ApplicationController
       send_data params[:initial_text], :disposition => 'attachment', :filename => "manipulation-#{timestamp}.txt"
       Event.create!(event_type: "Download", comment: "download")
       return
+    elsif params[:save_text].present?
+      @manipulated = params[:initial_text]
+      timestamp = DateTime.now.to_formatted_s(:short)
+      name = "Manipulation #{timestamp}"
+      Text.create!(name: name, content: params[:initial_text], user_id: current_user.id)
+      flash[:notice] = "Successfully saved '#{name}' to My Texts"
+      render 'home/index'
     else
+      @manipulated = params[:initial_text]
       flash[:notice] = "Looks like you didn't Add a Manipulation. Click the 'Add Manipulation' button once you've made your selection(s)."
-      redirect_to root_path
+      render 'home/index'
+    end
+  end
+
+  def user_texts
+    if current_user
+      Text.where(user_id: current_user.id).order(created_at: :desc).map { |x| [x.name, x.content] }
+    else
+      []
     end
   end
 
