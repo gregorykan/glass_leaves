@@ -1,0 +1,36 @@
+<div id ="main-container" class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p id="notice"><%= notice %></p>
+
+      <h3>My Texts</h3>
+      <br>
+      <%= button_to 'Add New Text', new_text_path, :class => ['add-action-btn'], :method => :get %>
+      <br>
+      <table>
+        <thead>
+          <tr>
+            <th width="20%">Name</th>
+            <th width="30%">Content</th>
+            <th width="20%">Created</th>
+            <th width="20%"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @texts.each do |text| %>
+            <tr>
+              <td><%=link_to truncate(text.name, :length => 30, :omission => '...'), text_path(text) %></td>
+              <td><%= truncate(text.content, :length => 30, :omission => '...') %></td>
+              <td><%= text.created_at.in_time_zone("Auckland").to_formatted_s(:long) %>
+              <td><%= button_to 'Delete', text, method: :delete, data: { confirm: 'Are you sure?' }, :class => ['add-action-btn'] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+    </div>
+  </div>
+</div>

@@ -2,12 +2,7 @@
   <%= form_tag(controller: "home", action: "manipulate", method: "post") do %>
     <div class="row">
       <div class="col-xs-5">
-        <% if @manipulated %>
-          <%= text_area_tag(:initial_text, @manipulated, :class => ['initial-text-box'], :placeholder => "Text to manipulate", :required => true, rows: 15, cols: 55) %>
-          <%= submit_tag("Download Text", :name => 'download', :class => ['submit-btn']) %>
-        <% else %>
-          <%= text_area_tag(:initial_text, nil, :class => ['initial-text-box'], :placeholder => "Text to manipulate", :required => true, rows: 15, cols: 55) %>
-        <% end %>
+        <%= render 'textbox' %>
       </div>
       <div class="col-xs-7">
         <div class="instructions-text">

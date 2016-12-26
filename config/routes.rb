@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :texts
   root 'home#index'
   devise_for :users
 
@@ -7,7 +8,6 @@ Rails.application.routes.draw do
   end
 
   get 'home/index'
-  post 'home/download'
   post 'home/manipulate' => 'home#manipulate'
 
   # The priority is based upon order of creation: first created -> highest priority.
