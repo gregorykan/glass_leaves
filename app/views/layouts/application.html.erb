@@ -9,7 +9,10 @@
 </head>
 <body>
   <div class="container">
-   <h1 class="page-header">glass.leaves</h1>
+    <% if user_signed_in? %>
+      <td><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></td>
+    <% end %>
+    <h1 class="page-header"><%= link_to 'glass.leaves', root_path %></h1>
   </div>
 
   <%= yield %>
