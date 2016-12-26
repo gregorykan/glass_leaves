@@ -1,25 +1,36 @@
-<%= form_for(@text) do |f| %>
-  <% if @text.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@text.errors.count, "error") %> prohibited this text from being saved:</h2>
+<div id ="main-container" class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= form_for(@text) do |f| %>
+        <% if @text.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@text.errors.count, "error") %> prohibited this text from being saved:</h2>
 
-      <ul>
-      <% @text.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% @text.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="row">
+          <div class="field">
+            <%= f.label :name %><br>
+            <%= f.text_area :name, rows: 1, cols: 55 %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <%= f.label :content %><br>
+            <%= f.text_area :content, rows: 15, cols: 55 %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

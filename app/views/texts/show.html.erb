@@ -14,6 +14,7 @@
       </p>
 
       <%= link_to 'Edit', edit_text_path(@text) %> |
+      <%= link_to 'Delete', @text, method: :delete, data: { confirm: 'Are you sure?' } %> |
       <%= link_to 'Back', texts_path %>
     </div>
   </div>
