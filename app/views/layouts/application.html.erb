@@ -9,8 +9,17 @@
 </head>
 <body>
   <div class="container">
+    <% if flash[:notice] %>
+    <span class="notice"><%= flash[:notice] %></span>
+    <br>
+    <% end %>
+    <% if flash[:alert] %>
+    <span class="alert"><%= flash[:alert] %></span>
+    <br>
+    <% end %>
     <% if user_signed_in? %>
-      <td><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></td>
+      <span><%= link_to 'Account Settings', edit_user_registration_path %> | </span>
+      <span><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></span>
     <% end %>
     <h1 class="page-header"><%= link_to 'glass.leaves', root_path %></h1>
   </div>
