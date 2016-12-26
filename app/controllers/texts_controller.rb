@@ -1,10 +1,11 @@
 class TextsController < ApplicationController
   before_action :set_text, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /texts
   # GET /texts.json
   def index
-    @texts = Text.all
+    @texts = Text.where(user_id: current_user.id).order(:created_at)
   end
 
   # GET /texts/1
@@ -24,7 +25,8 @@ class TextsController < ApplicationController
   # POST /texts
   # POST /texts.json
   def create
-    @text = Text.new(text_params)
+    text_params_with_user_id = text_params.merge({user_id: current_user.id})
+    @text = Text.new(text_params_with_user_id)
 
     respond_to do |format|
       if @text.save
