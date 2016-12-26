@@ -5,7 +5,7 @@ class TextsController < ApplicationController
   # GET /texts
   # GET /texts.json
   def index
-    @texts = Text.where(user_id: current_user.id).order(:created_at)
+    @texts = Text.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   # GET /texts/1
