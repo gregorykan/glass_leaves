@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
+  root 'home#index'
   devise_for :users
+
+  devise_scope :user do
+    get 'angela', to: 'devise/sessions#new'
+  end
+
   get 'home/index'
+  post 'home/download'
+  post 'home/manipulate' => 'home#manipulate'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
-  post 'home/download'
-  post 'home/manipulate' => 'home#manipulate'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

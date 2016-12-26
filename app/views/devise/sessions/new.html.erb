@@ -1,8 +1,11 @@
 <div id ="main-container" class="container">
   <div class="row">
     <div class="col-xs-5">
-      <h2>Log in</h2>
-
+      <% if request.fullpath == '/angela' %>
+        <H2>Hello, Hera</h2>
+      <% else %>
+        <h2>Log in</h2>
+      <% end %>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
           <%= f.label :email %><br />
