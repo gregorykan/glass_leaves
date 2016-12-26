@@ -1,15 +1,12 @@
 <div id ="main-container" class="container">
   <div class="row">
     <div class="col-xs-6">
-
       <p>
         <h3><%= @text.name %></h3>
       </p>
-
       <p>
         <%= @text.content %>
       </p>
-
       <%= link_to 'Edit', edit_text_path(@text) %> |
       <%= link_to 'Delete', @text, method: :delete, data: { confirm: 'Are you sure?' } %> |
       <%= link_to 'Back', texts_path %>
