@@ -12,6 +12,7 @@
           <tr>
             <th width="20%">Name</th>
             <th width="30%">Content</th>
+            <th width="20%">Created</th>
             <th width="20%"></th>
           </tr>
         </thead>
@@ -21,6 +22,7 @@
             <tr>
               <td><%=link_to truncate(text.name, :length => 30, :omission => '...'), text_path(text) %></td>
               <td><%= truncate(text.content, :length => 30, :omission => '...') %></td>
+              <td><%= text.created_at.in_time_zone("Auckland").to_formatted_s(:long) %>
               <td><%= button_to 'Delete', text, method: :delete, data: { confirm: 'Are you sure?' }, :class => ['add-action-btn'] %></td>
             </tr>
           <% end %>
