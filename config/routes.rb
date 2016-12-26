@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   end
 
   get 'home/index'
-  post 'home/download'
   post 'home/manipulate' => 'home#manipulate'
 
   # The priority is based upon order of creation: first created -> highest priority.
