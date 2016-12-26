@@ -2,6 +2,9 @@
   <%= form_tag(controller: "home", action: "manipulate", method: "post") do %>
     <div class="row">
       <div class="col-xs-5">
+        <% if @user_texts.any? %>
+          <%= select_tag :saved_text, options_for_select(@user_texts), prompt: 'Use My Text?', class: ['text-select'] %>
+        <% end %>
         <%= render 'textbox' %>
       </div>
       <div class="col-xs-7">
