@@ -1,5 +1,8 @@
 $(function(){
-
+  $('.text-select').on('change', function(){
+    var selected_text = this.value
+    $('.initial-text-box').val(selected_text)
+  });
   var seq = 1;
   $('.add-action-btn').click(function(){
     var current = seq;

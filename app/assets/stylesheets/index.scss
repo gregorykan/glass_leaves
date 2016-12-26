@@ -10,10 +10,6 @@ body {
   padding: 10px;
 }
 
-.action-select {
-  margin: 10px;
-}
-
 .submit-btn {
   margin: 10px;
 }
@@ -46,6 +42,18 @@ body {
 }
 
 .action-select {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.text-select {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.text-select {
   border: 1px solid black;
   padding: 10px;
 }
