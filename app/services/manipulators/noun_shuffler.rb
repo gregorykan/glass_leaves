@@ -7,15 +7,26 @@ module Manipulators
     def shuffle
       word_array = split_string_into_words
       noun_array = get_nouns_from_string
-      shuffled_nouns = noun_array.dup.shuffle
+      noun_instances_array = get_all_noun_instances_including_repetitions(noun_array, word_array)
+      shuffled_nouns = noun_instances_array.dup.shuffle
       word_array.map! do |word|
-        if (noun_array.include? word)
+        if (noun_instances_array.include? word)
           word = shuffled_nouns.pop
         else
           word
         end
       end
       word_array.join(" ")
+    end
+
+    def get_all_noun_instances_including_repetitions(noun_array, word_array)
+      all_noun_instances = []
+      word_array.map do |word|
+        if (noun_array.include? word)
+          all_noun_instances.push(word)
+        end
+      end
+      all_noun_instances
     end
 
     def get_nouns_from_string
