@@ -2,6 +2,7 @@ $(function(){
   $('.undo-btn').click(function(){
     var previous_text = $('.previous-text')[0].value
     $('.initial-text-box').val(previous_text)
+    this.remove()
   })
   $('.text-select').on('change', function(){
     var selected_text = this.value
