@@ -7,7 +7,8 @@ module Manipulators
     def shuffle
       word_array = split_string_into_words
       verb_array = get_verbs
-      shuffled_verbs = verb_array.dup.shuffle
+      verb_instances_array = get_all_verb_instances_including_repetitions(verb_array, word_array)
+      shuffled_verbs = verb_instances_array.dup.shuffle
       word_array.map! do |word|
         if (verb_array.include? word)
           word = shuffled_verbs.pop
@@ -16,6 +17,16 @@ module Manipulators
         end
       end
       word_array.join(" ")
+    end
+
+    def get_all_verb_instances_including_repetitions(verb_array, word_array)
+      all_verb_instances = []
+      word_array.map do |word|
+        if (verb_array.include? word)
+          all_verb_instances.push(word)
+        end
+      end
+      all_verb_instances
     end
 
     def get_verbs

@@ -10,7 +10,7 @@ module Manipulators
       noun_instances_array = get_all_noun_instances_including_repetitions(noun_array, word_array)
       shuffled_nouns = noun_instances_array.dup.shuffle
       word_array.map! do |word|
-        if (noun_instances_array.include? word)
+        if (noun_array.include? word)
           word = shuffled_nouns.pop
         else
           word
