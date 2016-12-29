@@ -9,8 +9,8 @@ class HomeController < ApplicationController
     @procedures ||= procedures.sort!
     @user_texts ||= user_texts
     if params[:operations].present?
-      initial_string = params[:initial_text]
-      @manipulated = manipulator(initial_string, method_array(params)).chain
+      @initial_string = params[:initial_text]
+      @manipulated = manipulator(@initial_string, method_array(params)).chain
       manipulations = method_array(params).map { |x| x[:method] }.join(", ")
       Event.create!(event_type: "Manipulation", comment: manipulations)
       render 'home/index'
