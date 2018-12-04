@@ -23,8 +23,8 @@
       <span><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></span>
     <% end %>
     <h1 class="page-header"><%= link_to 'glass.leaves', root_path %></h1>
+    <%= yield %>
   </div>
 
-  <%= yield %>
 </body>
 </html>

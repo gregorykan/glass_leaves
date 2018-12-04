@@ -37,7 +37,6 @@ gem 'pry-rails'
 gem 'pry-nav'
 gem 'therubyracer'
 
-gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
 gem 'markov_chains'
