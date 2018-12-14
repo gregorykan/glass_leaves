@@ -1,11 +1,13 @@
 <% if @manipulated %>
   <%= text_area_tag(:initial_text, @manipulated, :class => ['initial-text-box'], :placeholder => "Text to manipulate", :required => true, rows: 15, cols: 55) %>
   <%= hidden_field(:previous_text, @initial_string, :value => @initial_string, :class => ['previous-text']) %>
-  <button type="button" class="undo-btn submit-btn">Undo Last</button>
-  <%= submit_tag("Download Text", :name => 'download', :class => ['submit-btn']) %>
-  <% if user_signed_in? %>
-    <%= submit_tag("Save to My Texts", :name => 'save_text', :class => ['submit-btn']) %>
-  <% end %>
+  <div class="actions-container">
+    <button type="button" class="undo-btn submit-btn">Undo Last</button>
+    <%= submit_tag("Download Text", :name => 'download', :class => ['submit-btn']) %>
+    <% if user_signed_in? %>
+      <%= submit_tag("Save to My Texts", :name => 'save_text', :class => ['submit-btn']) %>
+    <% end %>
+  </div>
 <% else %>
   <%= text_area_tag(:initial_text, nil, :class => ['initial-text-box'], :placeholder => "Text to manipulate", :required => true, rows: 15, cols: 55) %>
 <% end %>

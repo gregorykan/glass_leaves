@@ -1,30 +1,24 @@
 <%= javascript_include_tag('index') %>
-<div id ="main-container" class="container">
-  <%= form_tag(controller: "home", action: "manipulate", method: "post") do %>
-    <div class="row">
-      <div class="col-xs-5">
+<div id="main-container" class="container">
+  <%= form_tag({controller: "home", action: "manipulate", method: "post"}, { class: 'form' }) do %>
+    <div class="container">
         <% if @user_texts.any? %>
           <%= select_tag :saved_text, options_for_select(@user_texts), prompt: 'Use My Text?', class: ['text-select'] %>
         <% end %>
-        <%= render 'textbox' %>
-      </div>
+        <div class="container">
+          <%= render 'textbox' %>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-xs-4">
+    <div class="container">
         <div class="added-actions">
         </div>
-      </div>
     </div>
-    <div class="row">
-      <div class="col-xs-5">
+    <div class="actions-container">
         <%= select_tag :method, options_for_select(@procedures), prompt: 'Choose a manipulation', class: ['action-select'] %>
         <button type="button" class="add-action-btn">Add Manipulation</button>
-      </div>
     </div>
-    <div class="row">
-      <div class="col-xs-5">
+    <div class="container">
         <%= submit_tag("Manipulate Text", :class => ['submit-btn']) %>
       </div>
-    </div>
   <% end %>
 </div>

@@ -2,12 +2,41 @@ body {
   font-family: Helvetica;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.actions-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .action-item {
-  border: 2px;
+  border: 1px;
   border-style: solid;
   border-color: black;
   margin: 15px;
   padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  width: 100%;
+}
+
+.initial-text-box {
+  width: 70%;
+  height: 500px;
+  font-size: 14px;
 }
 
 .submit-btn {
@@ -19,12 +48,11 @@ body {
 }
 
 .remove-action-btn {
-  border-radius: 50%;
   background-color: white;
   color: black;
   border: 1px solid black;
-  width: 30px;
   height: 30px;
+  margin-left: 30px;
 }
 
 .add-action-btn {
@@ -55,12 +83,6 @@ body {
 
 .instructions-text {
   font-size: small;
-}
-
-.remove-action-btn {
-  position: absolute;
-  right: 15px;
-  border: 2px solid black;
 }
 
 .notice {
