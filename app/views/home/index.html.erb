@@ -1,5 +1,6 @@
 <%= javascript_include_tag('index') %>
 <div id="main-container" class="container">
+  <%= link_to '[about]', home_about_path, class: 'about-link' %>
   <%= form_tag({controller: "home", action: "manipulate", method: "post"}, { class: 'form' }) do %>
     <div class="container">
         <% if @user_texts.any? %>

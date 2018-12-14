@@ -2,12 +2,26 @@ body {
   font-family: Helvetica;
 }
 
+a:visited {
+  color: black;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+.page-header-link {
+  text-decoration: none;
+}
+
+.about-link {
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .actions-container {
@@ -81,8 +95,8 @@ body {
   margin: 10px;
 }
 
-.instructions-text {
-  font-size: small;
+.about-text {
+  max-width: 70%;
 }
 
 .notice {

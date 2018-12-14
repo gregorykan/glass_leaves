@@ -5,6 +5,9 @@ class HomeController < ApplicationController
     @user_texts ||= user_texts
   end
 
+  def about
+  end
+
   def manipulate
     @procedures ||= procedures.sort!
     @user_texts ||= user_texts
