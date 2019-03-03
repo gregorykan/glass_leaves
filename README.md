@@ -28,7 +28,7 @@ Platforms:
 
 Notes:
 
-- Individual operations sorted by count (3 August 2016 - 3 March 2019):
+- Individual operations sorted by count (3 August 2016 - 3 March 2019), across 11000 operations logged:
  "generate_markov_chain"=>1538,
  "randomize"=>1472,
  "burn"=>1289,
