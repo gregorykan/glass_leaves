@@ -33,3 +33,4 @@ production:
   database: db/glass_leaves
   pool: 5
   timeout: 5000
+  url: <%= ENV["DIGITAL_OCEAN_DB_URL"] %>
